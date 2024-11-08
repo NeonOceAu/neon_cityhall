@@ -7,6 +7,7 @@ RegisterNetEvent('neon_cityhall:assignJob', function(jobName, jobLabel)
     if Player and jobName then
         Player.Functions.SetJob(jobName, 0)
         TriggerClientEvent('neon_cityhall:notifyJobAssigned', src, jobLabel)
+        LogJobAssignment(jobLabel, src)
     else
         TriggerClientEvent('neon_cityhall:notifyJobAssignmentError', src)
     end
@@ -25,6 +26,7 @@ RegisterNetEvent('neon_cityhall:buyLicense', function(licenseType, licenseLabel,
             Player.Functions.SetMetaData("licenses", Player.PlayerData.metadata["licenses"])
 
             TriggerClientEvent('neon_cityhall:notifyLicensePurchase', src, licenseLabel, price)
+            LogLicensePurchase(licenseLabel, price, src)
         else
             TriggerClientEvent('neon_cityhall:notifyInsufficientFunds', src, price)
         end

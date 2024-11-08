@@ -1,5 +1,8 @@
 Config = {}
 
+-- Check for updates.
+Config.Version = true
+
 -- Coordinates for the ped location
 Config.PedLocation = vector4(-262.6533, -964.3658, 30.2237, 208.2225)
 
